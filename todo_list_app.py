@@ -75,6 +75,7 @@ tasks = {
     }
 }
 
+# tasklist routing
 @app.route("/")
 def task_lists():
     return render_template("tasklists.html", tasklists = tasklists)
@@ -93,7 +94,7 @@ def create_tasklist():
 
 
 
-
+# task routing
 @app.route("/tasks")
 def tasks_():
     return render_template("tasks.html", tasks = tasks)
