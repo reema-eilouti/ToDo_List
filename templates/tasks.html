@@ -5,37 +5,43 @@
 
 {% block content %}
 
-<center>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Last Updated</th>
-                <th scope="col">Created At</th>
-                <th scope="col">Description</th>
-                <th scope="col">Options</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for task in tasks %}
-            <tr>
-                <th scope="row">{{loop.index}}</th>
-                <td>{{tasks[task]['name']}}</td>
-                <td>{{tasks[task]['last_updated']}}</td>
-                <td>{{tasks[task]['created_at']}}</td>
-                <td>{{tasks[task]['description']}}</td>
-                <td> <a href="/deletetask/{{loop.index}}" class="btn btn-secondary" type="submit" role="button"><i
-                            class="fas fa-trash"></i></a>
-                    <a href="/edittask/{{loop.index}}" class="btn btn-secondary" type="submit" role="button"><i
-                            class="fas fa-user-edit"></i></a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div class="container-full-bg">
 
-    <a href="/createtask" class="btn btn-secondary" type="submit" role="button"><i class="fas fa-plus"></i> Create New
-        Task</a>
-</center>
+    <div class="jumbotron mt-5">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Last Updated</th>
+                    <th scope="col">Created At</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                <tr>
+                    <th scope="row">{{loop.index}}</th>
+                    <td>{{tasks[task]['name']}}</td>
+                    <td>{{tasks[task]['last_updated']}}</td>
+                    <td>{{tasks[task]['created_at']}}</td>
+                    <td>{{tasks[task]['description']}}</td>
+                    <td> <a href="/deletetask/{{loop.index}}" class="btn btn-secondary" type="submit" role="button"><i
+                                class="fas fa-trash"></i></a>
+                        <a href="/edittask/{{loop.index}}" class="btn btn-secondary" type="submit" role="button"><i
+                                class="fas fa-user-edit"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <center>
+            <a href="/createtask" class="btn btn-secondary" type="submit" role="button"><i class="fas fa-plus"></i>
+                Create New
+                Task</a>
+        </center>
+    </div>
+</div>
 {% endblock %}

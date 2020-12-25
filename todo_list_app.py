@@ -33,41 +33,42 @@ tasklists = {
 tasks = {
     1: {
         "name": "learn flask blueprints",
-        "last_updated": "2020-04-23T18:25:43.511Z",
-        "created_at": "2020-04-23T18:25:43.511Z",
+        "last_updated": "2020-04-23",
+        "created_at": "2020-04-23",
         # "status": Status.DONE,
         # "priority": Priority.HIGH,
         "description": "Etiam sit amet massa nec urna hendrerit gravida et sed ipsum."
     },
     2: {
         "name": "learn Python enums",
-        "last_updated": "2012-04-20T18:25:43.511Z",
-        "created_at": "2012-04-20T18:25:43.511Z",
+        "last_updated": "2012-04-20",
+        "created_at": "2012-04-20",
         # "status": Status.IN_PROGRESS,
         # "priority": Priority.MEDIUM,
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "description": """Lorem ipsum dolor sit amet,
+         consectetur adipiscing elit."""
 
     },
     3:  {
         "name": "revise OOP concepts",
-        "last_updated": "2020-04-25T18:25:43.511Z",
-        "created_at": "2020-04-25T18:25:43.511Z",
+        "last_updated": "2020-04-25",
+        "created_at": "2020-04-25",
         # "status": Status.DONE,
         # "priority": Priority.HIGH,
         "description": "Ut eget elit interdum neque faucibus viverra."
     },
     4:  {
         "name": "clean keyboard",
-        "last_updated": "2020-04-25T18:25:43.511Z",
-        "created_at": "2020-04-25T18:25:43.511Z",
+        "last_updated": "2020-04-25",
+        "created_at": "2020-04-25",
         # "status": Status.DONE,
         # "priority": Priority.HIGH,
         "description": "Donec fermentum lacus ultrices mauris pretium, sit amet placerat felis dictum."
     },
     5:  {
         "name": "water plants",
-        "last_updated": "2020-04-25T18:25:43.511Z",
-        "created_at": "2020-04-25T18:25:43.511Z",
+        "last_updated": "2020-04-25",
+        "created_at": "2020-04-25",
         # "status": Status.DONE,
         # "priority": Priority.HIGH,
         "description": "Nam imperdiet ligula quis ligula rhoncus, et vehicula sem consectetur."
@@ -109,3 +110,8 @@ def delete_task():
 def create_task():
     return render_template("create_task.html")
 
+
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
