@@ -35,12 +35,12 @@
                                 class="fas fa-user-edit"></i></a>
                     </td>
                 </tr>
-                {% set list_number = "loop.index" %}
+                
                 {% endfor %}
             </tbody>
         </table>
         <center>
-            <a href="/createtask/{{list_number}}" class="btn btn-secondary" type="submit" role="button"><i class="fas fa-plus"></i>
+            <a href="/createtask/{{general_index}}" class="btn btn-secondary" type="submit" role="button"><i class="fas fa-plus"></i>
                 Create New
                 Task</a>
         </center>

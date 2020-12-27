@@ -69,6 +69,8 @@ tasks = {
         # "priority": Priority.HIGH,
         "description": "Nam "
     }
+      
+    
 }
 
 # tasklist routing
@@ -113,7 +115,7 @@ def create_tasklist():
 @app.route("/tasks/<int:index>")
 def tasks_(index):
     task_list = tasklists[index]["tasks"]
-    return render_template("tasks.html", tasks = tasks, task_list = task_list)
+    return render_template("tasks.html", tasks = tasks, task_list = task_list, general_index = index)
 
 
 
@@ -126,7 +128,7 @@ def edit_task(index):
     else:
         new_name=request.form["name"]
         time_updated = datetime.datetime.now()
-        new_description=request.form["description"]
+        new_description=request.form["description"]        
         tasks[index].update({'name': new_name , 'description' : new_description,'last_updated':time_updated})
         return redirect(url_for('tasks_'))
 
@@ -139,8 +141,8 @@ def delete_task(index):
     tasks.pop(index)
     return redirect(url_for("tasks_"))
 
-@app.route("/createtask", methods=["POST" , "GET"])
-def create_task():
+@app.route("/createtask/<int:index>", methods=["POST" , "GET"])
+def create_task(index):
     if request.method == "GET":
         return render_template("create_task.html" )
     else: 
@@ -148,8 +150,10 @@ def create_task():
         time_updated = datetime.datetime.now()
         new_name = request.form["name"]
         new_description = request.form["description"]
+        tasklists[index]['tasks'].append('len(tasks) +1')
+        print(tasklists)
         tasks.update({'len(tasks) +1':{'name': new_name,'last_updated':time_updated,'created_at':time_created ,'description':new_description}})
-        return redirect(url_for('tasks_'))
+        return redirect(url_for("tasks_",index = index))
     
 
 
