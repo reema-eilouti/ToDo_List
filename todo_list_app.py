@@ -79,13 +79,24 @@ tasks = {
 def task_lists():
     return render_template("tasklists.html", tasklists = tasklists)
 
-@app.route("/editname")
-def edit_tasklist_name():
-    return render_template("edit_name.html")
+@app.route("/editname/<int:index>" , methods=["POST" , "GET"])
+def edit_tasklist_name(index):
+    if request.method == "GET":
+        return render_template("edit_name.html")
 
-@app.route("/deletetasklist")
-def delete_tasklist():
-    return redirect(url_for("tasklists"))
+    else:
+        new_name=request.form["name"]
+        tasklists[index].update({'name': new_name})
+        return redirect(url_for('task_lists'))
+
+
+
+@app.route("/deletetasklist/<int:index>")
+def delete_tasklist(index):
+    tasklists.pop(index)
+    return redirect(url_for("task_lists"))
+
+
 
 @app.route("/createtasklist")
 def create_tasklist():
@@ -98,13 +109,28 @@ def create_tasklist():
 def tasks_():
     return render_template("tasks.html", tasks = tasks)
 
-@app.route("/edittask")
-def edit_task():
-    return render_template("edit_task.html")
 
-@app.route("/deletetask")
-def delete_task():
-    return redirect(url_for("tasks"))
+
+@app.route("/edittask/<int:index>", methods=["POST" , "GET"])
+def edit_task(index):
+
+    if request.method == "GET":
+        return render_template("edit_task.html")
+
+    else:
+        new_name=request.form["name"]
+        new_description=request.form["description"]
+        tasks[index].update({'name': new_name , 'description' : new_description})
+        return redirect(url_for('tasks_'))
+
+    
+
+
+
+@app.route("/deletetask/<int:index>")
+def delete_task(index):
+    tasks.pop(index)
+    return redirect(url_for("tasks_"))
 
 @app.route("/createtask")
 def create_task():
