@@ -22,24 +22,25 @@
                 </tr>
             </thead>
             <tbody>
-                {% for task in tasks %}
+                {% for index in task_list %}
                 <tr>
                     <th scope="row">{{loop.index}}</th>
-                    <td>{{tasks[task]['name']}}</td>
-                    <td>{{tasks[task]['last_updated']}}</td>
-                    <td>{{tasks[task]['created_at']}}</td>
-                    <td>{{tasks[task]['description']}}</td>
+                    <td>{{tasks[index]['name']}}</td>
+                    <td>{{tasks[index]['last_updated']}}</td>
+                    <td>{{tasks[index]['created_at']}}</td>
+                    <td>{{tasks[index]['description']}}</td>
                     <td> <a href="/deletetask/{{loop.index}}" class="btn btn-secondary" type="submit" role="button"><i
                                 class="fas fa-trash"></i></a>
                         <a href="/edittask/{{loop.index}}" class="btn btn-secondary" type="submit" role="button"><i
                                 class="fas fa-user-edit"></i></a>
                     </td>
                 </tr>
+                {% set list_number = "loop.index" %}
                 {% endfor %}
             </tbody>
         </table>
         <center>
-            <a href="/createtask" class="btn btn-secondary" type="submit" role="button"><i class="fas fa-plus"></i>
+            <a href="/createtask/{{list_number}}" class="btn btn-secondary" type="submit" role="button"><i class="fas fa-plus"></i>
                 Create New
                 Task</a>
         </center>

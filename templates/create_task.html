@@ -4,5 +4,31 @@
 
 
 {% block content %}
+<div class="container">
+    <div class="jumbotron mt-5">
 
+        <center>
+            <form method="POST" class="form-group">
+
+                <label>
+                    <h5> Task Name : </h5>
+                </label>
+
+                <input type="text" name="name" placeholder="Please enter task name" style="width:30%">
+                <br>
+                <label>
+                    <h5> Task Description : </h5>
+                </label>
+
+                <input type="text" name="description" placeholder="Please enter task Description" style="width:30%">
+                <br>
+                
+
+                <button type="submit" class="btn btn-secondary">Create Task</button>
+            </form>
+        </center>
+
+
+    </div>
+</div>
 {% endblock %}
