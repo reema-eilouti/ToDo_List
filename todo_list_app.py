@@ -37,7 +37,7 @@ tasks = {
         "created_at": "2020-04-23",
         # "status": Status.DONE,
         # "priority": Priority.HIGH,
-        "description": "Etiam sit amet massa nec urna hendrerit gravida et sed ipsum."
+        "description": "Etiam"
     },
     2: {
         "name": "learn Python enums",
@@ -45,8 +45,7 @@ tasks = {
         "created_at": "2012-04-20",
         # "status": Status.IN_PROGRESS,
         # "priority": Priority.MEDIUM,
-        "description": """Lorem ipsum dolor sit amet,
-         consectetur adipiscing elit."""
+        "description": "hello"
 
     },
     3:  {
@@ -55,7 +54,7 @@ tasks = {
         "created_at": "2020-04-25",
         # "status": Status.DONE,
         # "priority": Priority.HIGH,
-        "description": "Ut eget elit interdum neque faucibus viverra."
+        "description": "Ut "
     },
     4:  {
         "name": "clean keyboard",
@@ -63,7 +62,7 @@ tasks = {
         "created_at": "2020-04-25",
         # "status": Status.DONE,
         # "priority": Priority.HIGH,
-        "description": "Donec fermentum lacus ultrices mauris pretium, sit amet placerat felis dictum."
+        "description": "Donec"
     },
     5:  {
         "name": "water plants",
@@ -71,7 +70,7 @@ tasks = {
         "created_at": "2020-04-25",
         # "status": Status.DONE,
         # "priority": Priority.HIGH,
-        "description": "Nam imperdiet ligula quis ligula rhoncus, et vehicula sem consectetur."
+        "description": "Nam "
     }
 }
 
