@@ -30,16 +30,16 @@ tasklists = {
 tasks = {
     1: {
         "name": "learn flask blueprints",
-        "last_updated": "2020-04-23",
-        "created_at": "2020-04-23",
+        "last_updated": "2012-04-23 18:25:43.511000",
+        "created_at": "2012-04-23 18:25:43.511000",
         # "status": Status.DONE,
         # "priority": Priority.HIGH,
         "description": "Etiam"
     },
     2: {
         "name": "learn Python enums",
-        "last_updated": "2012-04-20",
-        "created_at": "2012-04-20",
+        "last_updated": "2012-04-23 18:25:43.511000",
+        "created_at": "2012-04-23 18:25:43.511000",
         # "status": Status.IN_PROGRESS,
         # "priority": Priority.MEDIUM,
         "description": "hello"
@@ -47,24 +47,24 @@ tasks = {
     },
     3:  {
         "name": "revise OOP concepts",
-        "last_updated": "2020-04-25",
-        "created_at": "2020-04-25",
+        "last_updated": "2012-04-23 18:25:43.511000",
+        "created_at": "2012-04-23 18:25:43.511000",
         # "status": Status.DONE,
         # "priority": Priority.HIGH,
         "description": "Ut "
     },
     4:  {
         "name": "clean keyboard",
-        "last_updated": "2020-04-25",
-        "created_at": "2020-04-25",
+        "last_updated": "2012-04-23 18:25:43.511000",
+        "created_at": "2012-04-23 18:25:43.511000",
         # "status": Status.DONE,
         # "priority": Priority.HIGH,
         "description": "Donec"
     },
     5:  {
         "name": "water plants",
-        "last_updated": "2020-04-25",
-        "created_at": "2020-04-25",
+        "last_updated": "2012-04-23 18:25:43.511000",
+        "created_at": "2012-04-23 18:25:43.511000",
         # "status": Status.DONE,
         # "priority": Priority.HIGH,
         "description": "Nam "
@@ -130,7 +130,7 @@ def edit_task(index):
         time_updated = datetime.datetime.now()
         new_description=request.form["description"]        
         tasks[index].update({'name': new_name , 'description' : new_description,'last_updated':time_updated})
-        return redirect(url_for('tasks_'))
+        return redirect(url_for('tasks_', index = index))
 
     
 
@@ -139,7 +139,7 @@ def edit_task(index):
 @app.route("/deletetask/<int:index>")
 def delete_task(index):
     tasks.pop(index)
-    return redirect(url_for("tasks_"))
+    return redirect(url_for("tasks_", index = index))
 
 @app.route("/createtask/<int:index>", methods=["POST" , "GET"])
 def create_task(index):
