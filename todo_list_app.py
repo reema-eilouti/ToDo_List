@@ -11,20 +11,13 @@ tasklists = {
         "name": "Python list",
         "last_updated": "2012-04-23T18:25:43.511Z",
         "created_at": "2012-04-23T18:25:43.511Z",
-        "tasks": [
-            1,
-            2,
-            3
-        ],
+        "tasks": [1,2,3]
         },
     2: {
         "name": "Home list",
         "last_updated": "2012-04-23T18:25:43.511Z",
         "created_at": "2012-04-23T18:25:43.511Z",
-        "tasks": [
-            4,
-            5
-        ],
+        "tasks": [4,5]
     }
 }
 
@@ -105,9 +98,11 @@ def create_tasklist():
 
 
 # task routing
-@app.route("/tasks")
-def tasks_():
-    return render_template("tasks.html", tasks = tasks)
+@app.route("/tasks/<int:index>")
+def tasks_(index):
+    task_list = tasklists[index]["tasks"]
+    
+    return render_template("tasks.html", tasks = tasks, task_list = task_list)
 
 
 
