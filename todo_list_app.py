@@ -119,27 +119,28 @@ def tasks_(index):
 
 
 
-@app.route("/edittask/<int:index>", methods=["POST" , "GET"])
-def edit_task(index):
+@app.route("/edittask/<int:index>/<int:general_index>", methods=["POST" , "GET"])
+def edit_task(index, general_index):
 
     if request.method == "GET":
         return render_template("edit_task.html")
 
     else:
-        new_name=request.form["name"]
         time_updated = datetime.datetime.now()
-        new_description=request.form["description"]        
+        new_name = request.form["name"]
+        new_description = request.form["description"]        
         tasks[index].update({'name': new_name , 'description' : new_description,'last_updated':time_updated})
-        return redirect(url_for('tasks_', index = index))
+        return redirect(url_for('tasks_', index = general_index))
 
     
 
 
 
-@app.route("/deletetask/<int:index>")
-def delete_task(index):
+@app.route("/deletetask/<int:index>/<int:general_index>")
+def delete_task(index, general_index):
+    tasklists[general_index]["tasks"].remove(index)
     tasks.pop(index)
-    return redirect(url_for("tasks_", index = index))
+    return redirect(url_for("tasks_", index = general_index))
 
 @app.route("/createtask/<int:index>", methods=["POST" , "GET"])
 def create_task(index):

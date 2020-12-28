@@ -24,14 +24,14 @@
             <tbody>
                 {% for index in task_list %}
                 <tr>
-                    <th scope="row">{{loop.index}}</th>
+                    <th scope="row">{{index}}</th>
                     <td>{{tasks[index]['name']}}</td>
                     <td>{{tasks[index]['last_updated']}}</td>
                     <td>{{tasks[index]['created_at']}}</td>
                     <td>{{tasks[index]['description']}}</td>
-                    <td> <a href="/deletetask/{{loop.index}}" class="btn btn-secondary" type="submit" role="button"><i
+                    <td> <a href="/deletetask/{{index}}/{{general_index}}" class="btn btn-secondary" type="submit" role="button"><i
                                 class="fas fa-trash"></i></a>
-                        <a href="/edittask/{{loop.index}}" class="btn btn-secondary" type="submit" role="button"><i
+                        <a href="/edittask/{{index}}/{{general_index}}" class="btn btn-secondary" type="submit" role="button"><i
                                 class="fas fa-user-edit"></i></a>
                     </td>
                 </tr>
