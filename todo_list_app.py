@@ -126,10 +126,11 @@ def edit_task(index, general_index):
         return render_template("edit_task.html")
 
     else:
+        new_status= request.form["status"]
         time_updated = datetime.datetime.now()
         new_name = request.form["name"]
         new_description = request.form["description"]        
-        tasks[index].update({'name': new_name , 'description' : new_description,'last_updated':time_updated})
+        tasks[index].update({'name': new_name , 'description' : new_description,'last_updated':time_updated , "status" : new_status})
         return redirect(url_for('tasks_', index = general_index))
 
     
@@ -148,12 +149,6 @@ def create_task(index):
         return render_template("create_task.html" )
     else:
         priority = request.form["priority"] 
-        if priority == 1:
-            priority = Priority.LOW
-        elif priority == 2:
-            priority = Priority.MEDIUM
-        elif priority == 3:
-            priority = Priority.HIGH
         time_created = datetime.datetime.now()
         time_updated = datetime.datetime.now()
         new_name = request.form["name"]
