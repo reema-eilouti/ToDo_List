@@ -18,7 +18,9 @@
                     <th scope="col">Last Updated</th>
                     <th scope="col">Created At</th>
                     <th scope="col">Description</th>
-                    <th scope="col">Options</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Priority</th>
+                    <th scope="col" style="width: 15%;">Options</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,8 +29,10 @@
                     <th scope="row">{{index}}</th>
                     <td>{{tasks[index]['name']}}</td>
                     <td>{{tasks[index]['last_updated']}}</td>
-                    <td>{{tasks[index]['created_at']}}</td>
+                    <td>{{tasks[index]['created_at']}}</td>                    
                     <td>{{tasks[index]['description']}}</td>
+                    <td>{{tasks[index]['status']}}</td>
+                    <td>{{tasks[index]['priority']}}</td>
                     <td> <a href="/deletetask/{{index}}/{{general_index}}" class="btn btn-secondary" type="submit" role="button"><i
                                 class="fas fa-trash"></i></a>
                         <a href="/edittask/{{index}}/{{general_index}}" class="btn btn-secondary" type="submit" role="button"><i

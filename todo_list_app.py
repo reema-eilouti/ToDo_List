@@ -1,10 +1,10 @@
 # from status import Status       # Remember to import status and priority from the provided files
 # from priority import Priority
+from status import Status       # Remember to import status and priority from the provided files
+from priority import Priority
 from flask import Flask, render_template, redirect, url_for, request
 import time
 import datetime
-
-
 
 app = Flask(__name__)
 
@@ -32,16 +32,16 @@ tasks = {
         "name": "learn flask blueprints",
         "last_updated": "2012-04-23 18:25:43.511000",
         "created_at": "2012-04-23 18:25:43.511000",
-        # "status": Status.DONE,
-        # "priority": Priority.HIGH,
+        "status": Status.DONE,
+        "priority": Priority.HIGH,
         "description": "Etiam"
     },
     2: {
         "name": "learn Python enums",
         "last_updated": "2012-04-23 18:25:43.511000",
         "created_at": "2012-04-23 18:25:43.511000",
-        # "status": Status.IN_PROGRESS,
-        # "priority": Priority.MEDIUM,
+        "status": Status.IN_PROGRESS,
+        "priority": Priority.MEDIUM,
         "description": "hello"
 
     },
@@ -49,24 +49,24 @@ tasks = {
         "name": "revise OOP concepts",
         "last_updated": "2012-04-23 18:25:43.511000",
         "created_at": "2012-04-23 18:25:43.511000",
-        # "status": Status.DONE,
-        # "priority": Priority.HIGH,
+        "status": Status.DONE,
+        "priority": Priority.HIGH,
         "description": "Ut "
     },
     4:  {
         "name": "clean keyboard",
         "last_updated": "2012-04-23 18:25:43.511000",
         "created_at": "2012-04-23 18:25:43.511000",
-        # "status": Status.DONE,
-        # "priority": Priority.HIGH,
+        "status": Status.DONE,
+        "priority": Priority.HIGH,
         "description": "Donec"
     },
     5:  {
         "name": "water plants",
         "last_updated": "2012-04-23 18:25:43.511000",
         "created_at": "2012-04-23 18:25:43.511000",
-        # "status": Status.DONE,
-        # "priority": Priority.HIGH,
+        "status": Status.DONE,
+        "priority": Priority.HIGH,
         "description": "Nam "
     }
       
@@ -146,17 +146,23 @@ def delete_task(index, general_index):
 def create_task(index):
     if request.method == "GET":
         return render_template("create_task.html" )
-    else: 
+    else:
+        priority = request.form["priority"] 
+        if priority == 1:
+            priority = Priority.LOW
+        elif priority == 2:
+            priority = Priority.MEDIUM
+        elif priority == 3:
+            priority = Priority.HIGH
         time_created = datetime.datetime.now()
         time_updated = datetime.datetime.now()
         new_name = request.form["name"]
         new_description = request.form["description"]
         tasklists[index]['tasks'].append('len(tasks) +1')
         print(tasklists)
-        tasks.update({'len(tasks) +1':{'name': new_name,'last_updated':time_updated,'created_at':time_created ,'description':new_description}})
+        tasks.update({'len(tasks) +1':{'name': new_name,'last_updated':time_updated,'created_at':time_created ,'status':Status.NEW ,'priority':priority,'description':new_description}})
         return redirect(url_for("tasks_",index = index))
     
-
 
 
 
